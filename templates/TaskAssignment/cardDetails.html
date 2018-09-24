@@ -1,0 +1,37 @@
+{% extends 'TaskAssignment/base.html' %}
+
+{% block body %}
+    {%if all_task%}
+   
+        {% for task in all_task%}
+            <div class="col">
+                <div class="col-md-3">
+                  <div class="thumbnail">
+                      <h3>Issue : </h3>
+                      <h4>{{task.task}}</h4><hr>
+                      <h5>Current Status : {{task.status}}</h5>
+                      <div class="caption">
+                        <p>By : {{task.assignedBy}}<br>
+                        ON : {{task.assign_date}}</p>
+                        {{task.team}}
+                        <form action ="{%url 'tasks:detailTask' task.id%}" method="POST" style="display:inline">
+                            {% csrf_token %}
+                            <select class="mdb-select md-form" name="selected_status">
+                                <option value="" disabled selected>Update Status</option>
+                                <option value="Started">Started</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Pending">Pending</option>
+                            </select>
+                            <input type="submit" value="Select">
+                        </form>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        
+        {%endfor%}
+  
+    {%endif%}
+{% endblock %}
+
+

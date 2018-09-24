@@ -1,0 +1,22 @@
+{%extends 'TaskAssignment/base.html' %}
+{% block body %}  
+<div class="container-fluid">
+    <div class="row">
+        <h2>Add new task</h2>
+        <div class="col-sm-12 col-md-7">
+        <div class="panel panel-defualt">
+        <div class="panel-body">
+
+        <form action="" method="POST" enctype="multipart/form-data"> <!--what's enctype-->
+            {% csrf_token %} 
+            {% include 'TaskAssignment/form-template.html' %}
+            <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
+            </div>                 
+        </form>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}  

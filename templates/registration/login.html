@@ -1,0 +1,9 @@
+
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {% include 'TaskAssignment/form-template.html' %}
+  <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success">Login</button>
+    </div>  
+</form>

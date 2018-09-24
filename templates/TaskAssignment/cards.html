@@ -1,0 +1,24 @@
+{% extends 'TaskAssignment/base.html' %}
+
+{% block body %}
+    {%if tasks%}
+   
+        {% for all_task,pending_task in all_task_count%}
+            <a href="{%url 'tasks:taskList' all_task.team%}">
+            <div class="col">
+                <div class="col-md-2">
+                  <div class="thumbnail">
+                      <h4>Open Issue : {{pending_task.task__count}}/{{all_task.task__count}}</h4><hr>
+                      <div class="caption">
+                          <p>{{all_task.team}}</p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            </a>
+        {%endfor%}
+  
+    {%endif%}
+{% endblock %}
+
+
